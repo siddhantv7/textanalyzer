@@ -28,7 +28,7 @@ export default function TextForm(props) {
     }
 
     return (
-        <div className="mb-3" style={{color: props.mode ==="dark"?"white":"black"}} >
+        <div className="mb-3 mt-3" style={{color: props.mode ==="dark"?"white":"black"}} >
             <h3  >{props.headingText}</h3>
             <label htmlFor="myBox">Example Textarea</label>
             <textarea 
