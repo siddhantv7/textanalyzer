@@ -3,7 +3,7 @@ import './App.css';
 // import About from './components/About.js';
 import Navbar from "./components/Navbar.js"
 import TextForm from './components/TextForm.js';
-// import Alert from './components/Alert.js';
+import Alert from './components/Alert.js';
 
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
   return (
     < >
       <Navbar alert={alert} title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /*props*/ />
-      {/* <Alert  setAlert={setAlert}/> */}
+      <Alert  setAlert={setAlert}/>
       <div className="container">
         {/* <About/> */}
         <TextForm headingText="Enter the text to analyze" mode={mode} />
