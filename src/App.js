@@ -43,8 +43,8 @@ function App() {
 
   return (
     < >
-      <Navbar alert={alert} title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /*props*/ />
-      <Alert  setAlert={setAlert}/>
+      <Navbar  title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /*props*/ />
+      <Alert alert={alert} setAlert={setAlert}/>
       <div className="container">
         {/* <About/> */}
         <TextForm headingText="Enter the text to analyze" mode={mode} />
