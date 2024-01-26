@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-export default function About() {
+
+export default function About(props) {
 
     const [darkMode, setDarkModeColor] = useState({
         color: 'black',
@@ -35,11 +36,14 @@ export default function About() {
 
     return (
         <div>
-            <div style={darkMode}>
+            {/* <div style={darkMode}> */}
+            <div style={{color: props.mode ==="dark"?"white":"black"}} className={`text-${props.mode === "light" ? "dark" : "light"}`}>
                 <h2 >About Us</h2>
                 <div className="page-content mt-3">
                     <div className="block-title">Welcome to Framework7</div>
-                    <div className="block block-strong" style={darkMode}>
+                    {/* <div className="block block-strong" style={darkMode}> */}
+                    <div className={`text-${props.mode === "light" ? "dark" : "light"} block block-strong`} style={{color: props.mode ==="dark"?"white":"black"}} >
+                    
                         {/* <p style={{color:"red"}}>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p> */}
                         <p>Framework7 - is a free and open source HTML mobile framework to develop hybrid mobile apps or web apps with iOS or Android (Material) native look and feel. It is also an indispensable prototyping apps tool to show working app prototype as soon as possible in case you need to. Framework7 is created by Vladimir Kharlampidi (iDangero.us).</p>
                         <p>The main approach of the Framework7 is to give you an opportunity to create iOS and Android (Material) apps with HTML, CSS and JavaScript easily and clear. Framework7 is full of freedom. It doesn't limit your imagination or offer ways of any solutions somehow. Framework7 gives you freedom!</p>

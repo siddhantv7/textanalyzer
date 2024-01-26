@@ -1,6 +1,8 @@
 import { useState } from 'react';
+// import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-// import About from './components/About.js';
+import About from './components/About.js';
 import Navbar from "./components/Navbar.js"
 import TextForm from './components/TextForm.js';
 import Alert from './components/Alert.js';
@@ -12,19 +14,25 @@ function App() {
   const [alert, setAlert] = useState(null);
 
 
-  const showAlert = (message = "Light mode has been enabled", type ="Success") => {
+  const showAlert = (message = "Light mode has been enabled", type = "Success") => {
     setAlert({
       msg: message,
       type: type
     })
+    //   setTimeout(() => {
+    //     setAlert(null);
+    // }, 1500);
   }
 
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
       document.body.style.backgroundColor = "#22396f";
-      showAlert("Dark mode has been enabled", "Success");
-      console.log(alert);
+      showAlert("Dark mode has been enabled", "success");
+      setInterval(() => {
+        setAlert(null);
+      }, 3000)
+
       // setInterval(() => {
       //   document.title = "TextUtils is Amazing Mode";
       // }, 2000)
@@ -35,22 +43,28 @@ function App() {
     else {
       setMode("light")
       document.body.style.backgroundColor = "white"
-      showAlert("Light mode has been enabled", "Success")
-      console.log(alert);
+      showAlert("Light mode has been enabled", "success")
+      setInterval(() => {
+        setAlert(null);
+      }, 3000)
     }
   }
 
 
   return (
-    < >
-      <Navbar  title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /*props*/ />
-      <Alert alert={alert} setAlert={setAlert}/>
-      <div className="container">
-        {/* <About/> */}
-        <TextForm headingText="Enter the text to analyze" mode={mode} />
-      </div>
+    <>
+      <BrowserRouter>
+        <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} /*props*/ />
+        <Alert alert={alert} setAlert={setAlert} />
+        <div className="container">
+          <Routes>
+            <Route exact path="/home" element={<TextForm headingText="Enter the text to analyze" mode={mode} />} />
+            <Route exact path="/about"  element={<About mode={mode}/>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }
 
-export default App;
+export default App
