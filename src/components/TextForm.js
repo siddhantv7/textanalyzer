@@ -41,7 +41,7 @@ export default function TextForm(props) {
                     }}
                 id="exampleFormControlTextarea1" 
                 rows="3"/>
-            <button className='btn btn-primary mb-2 mt-3' onClick={handleUpClick}>Convert to upper case</button>
+            <button className='btn btn-primary mb-2 mt-3 ms-3' onClick={handleUpClick}>Convert to upper case</button>
             <button className='btn btn-primary mb-2 mt-3 ms-3' onClick={handleLoClick}>Convert to lower case</button>
 
             <div className="mt-2">

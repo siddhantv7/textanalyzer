@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar.js"
 import TextForm from './components/TextForm.js';
 import Alert from './components/Alert.js';
 
-
+// https://create-react-app.dev/docs/deployment/      git hub app deployment
 function App() {
 
   const [mode, setMode] = useState("light");
