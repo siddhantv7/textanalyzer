@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import About from './components/About.js';
 import Navbar from "./components/Navbar.js"
-import TextForm from './components/TextForm.js';
+import TextForm from './components/TextForm.js'; 
 import Alert from './components/Alert.js';
 
 // https://create-react-app.dev/docs/deployment/      git hub app deployment

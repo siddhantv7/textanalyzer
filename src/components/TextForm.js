@@ -5,8 +5,8 @@ import PropTypes from 'prop-types'
 export default function TextForm(props) {
 
 
-    const [text, setText] = useState("Enter you input");
-    const [upperText, setUpperText] = useState("Enter you input");
+    const [text, setText] = useState("");
+    const [newText, setNewText] = useState("");
 
     const handleOnChange = (event) => {
         console.log("on change");
@@ -15,15 +15,28 @@ export default function TextForm(props) {
 
     const handleUpClick = () => {
         console.log("Buttom Clicked");
-        const newText = text.toUpperCase().trim();
-        setUpperText(newText);
+        const convertedTex = text.replace(/\s+/g, ' ').toUpperCase().trim();
+        setNewText(convertedTex);
 
     }
 
     const handleLoClick = () => {
         console.log("Buttom Clicked");
-        const newText = text.toLowerCase().trim();
-        setUpperText(newText);
+        const convertedTex = text.replace(/\s+/g, ' ').toLowerCase().trim();
+        setNewText(convertedTex);
+
+    }
+
+    const handleRmvSpaceClick = () => {
+        console.log("Buttom Clicked");
+        const convertedTex = text.replace(/\s+/g, ' ');
+        setNewText(convertedTex);
+
+    }
+
+    const handleClrTextClick = () => {
+        setText("");
+        setNewText("");
 
     }
 
@@ -40,9 +53,13 @@ export default function TextForm(props) {
                         backgroundColor: props.mode ==="dark"?"#22396f":"white"
                     }}
                 id="exampleFormControlTextarea1" 
-                rows="3"/>
-            <button className='btn btn-primary mb-2 mt-3 ms-3' onClick={handleUpClick}>Convert to upper case</button>
-            <button className='btn btn-primary mb-2 mt-3 ms-3' onClick={handleLoClick}>Convert to lower case</button>
+                rows="3"
+                placeholder='Enter your input'
+                />
+            <button disabled={text.length === 0} className='btn btn-primary mb-2 mt-2 ms-2' onClick={handleUpClick}>Upper Case</button>
+            <button disabled={text.length === 0} className='btn btn-primary mb-2 mt-2 ms-2' onClick={handleLoClick}>Lower Case</button>
+            <button disabled={text.length === 0} className='btn btn-primary mb-2 mt-2 ms-2' onClick={handleRmvSpaceClick}>Remove Space</button>
+            <button disabled={text.length === 0} className='btn btn-primary mb-2 mt-2 ms-2' onClick={handleClrTextClick}>Clear Text</button>
 
             <div className="mt-2">
                 <label htmlFor="displayText">Display Text:</label>
@@ -55,8 +72,10 @@ export default function TextForm(props) {
                         color: props.mode ==="dark"?"white":"black",
                         backgroundColor: props.mode ==="dark"?"#22396f":"white"
                     }}
-                    value={upperText}
-                    rows="7" 
+                    value={newText}
+                    rows="6" 
+                    placeholder='Text will displayed here'
+                    
                 />
             </div>
 
@@ -69,9 +88,10 @@ export default function TextForm(props) {
                     backgroundColor: props.mode ==="dark"?"#22396f":"white"
                     }} 
                     className='border-0 m-0' 
-                    readOnly id='displayTextDetail' 
-                    value={" "+upperText.split(' ').length}
-                />
+                    readOnly 
+                    id='displayTextDetail' 
+                    value={newText.split(' ').filter((element)=>{ return element.length!==0}).length}/>
+
                 <label htmlFor="displayTextDetail">Character count: </label>
                 <input 
                     style={{
@@ -80,8 +100,7 @@ export default function TextForm(props) {
                     }} 
                     className='border-0 m-0' 
                     readOnly id='displayTextDetail' 
-                    value={" "+upperText.length}
-                />
+                    value={" "+newText.length}/>
             </div>
 
         </div>

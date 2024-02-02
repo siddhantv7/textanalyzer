@@ -1,38 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 
 export default function About(props) {
 
-    const [darkMode, setDarkModeColor] = useState({
-        color: 'black',
-        backgroundColor: "white"
-    });
+    // const [darkMode, setDarkModeColor] = useState({
+    //     color: 'black',
+    //     backgroundColor: "white"
+    // });
 
-    const [btnStyle, setBtnStyle] = useState("Dark Mode");
+    // const [btnStyle, setBtnStyle] = useState("Dark Mode");
 
-    const changeBgColor = () => {
-        if (darkMode.color === "white" && darkMode.backgroundColor === "black") {
-            setDarkModeColor({
-                color: 'black',
-                backgroundColor: "white"
-            });
-            setBtnStyle("Dark Mode");
-        } else if (darkMode.color === "black" && darkMode.backgroundColor === "white") {
-            setDarkModeColor({
-                color: 'white',
-                backgroundColor: "black"
-            });
-            setBtnStyle("White Mode");
-        }
-        else {
-            setDarkModeColor({
-                color: 'black',
-                backgroundColor: "white"
-            });
-        }
-
-
-    }
+    // const changeBgColor = () => {
+    //     if (darkMode.color === "white" && darkMode.backgroundColor === "black") {
+    //         setDarkModeColor({
+    //             color: 'black',
+    //             backgroundColor: "white"
+    //         });
+    //         setBtnStyle("Dark Mode");
+    //     } else if (darkMode.color === "black" && darkMode.backgroundColor === "white") {
+    //         setDarkModeColor({
+    //             color: 'white',
+    //             backgroundColor: "black"
+    //         });
+    //         setBtnStyle("White Mode");
+    //     }
+    //     else {
+    //         setDarkModeColor({
+    //             color: 'black',
+    //             backgroundColor: "white"
+    //         });
+    //     }
+    // }
 
     return (
         <div>
@@ -52,11 +50,11 @@ export default function About(props) {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            {/* <div className="container">
                 <button type="button" onClick={changeBgColor} className="btn btn-dark mt-3">
                     {btnStyle}
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }
